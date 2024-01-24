@@ -2,151 +2,41 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Display current date and time</title>
+    <title>Heeft Gimly zijn rijbewijs al terug=</title>
   </head>
   <body>
-    <h1>Current date and time:</h1>
-    <span id="datetime"></span>
+    <h2>Heeft Gimly zijn rijbewijs al terug:</h2>
+    <h1><span class="answertext" id="answer"></span></h1>
+    <h3><span id="datetime"></span></h3>
 
     <script>
       // create a function to update the date and time
-      function updateDateTime() {
+      function updateDateTime() 
+	  {
         // create a new `Date` object
         const now = new Date();
+        const rbw = new Date("04/10/2024");
 
-        // get the current date and time as a string
-        const currentDateTime = now.toLocaleString();
-
-        // update the `textContent` property of the `span` element with the `id` of `datetime`
-        document.querySelector('#datetime').textContent = currentDateTime;
+		let Difference_In_Time = rbw.getTime() - now.getTime();
+		
+		let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+		
+		console.log(Difference_In_Days);
+		
+		if (Difference_In_Days > 0)
+		{
+			document.querySelector('#answer').textContent = "Nee!";
+			document.querySelector('#answer').style.color = "red";
+			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " dagen geduld...";			
+		}
+		else
+		{
+			document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
+			document.querySelector('#answer').style.color = "green";	
+		}
       }
-
       // call the `updateDateTime` function every second
       setInterval(updateDateTime, 1000);
-    </script>
-    <script>
-      90% Refund @Courses
-DSA with JS - Self Paced
-A to Z Guide
-Array
-String
-Object
-Operator
-Set
-Map
-RegExp
-Math
-Date
-Number
-Boolean
-Error
-Projects
-Examples
-Free JS Course
-A to Z Guide
-Cheat Sheet
-Interview Questions
-JS Formatter
-Web Technology
-
-Related Articles
-Related Articles
-Explore Our Geeks Community
-Convert a negative number to positive in JavaScript
-Check a number is Prime or not using JavaScript
-How to convert a number into array in JavaScript ?
-How to generate a n-digit number using JavaScript ?
-How to get decimal portion of a number using JavaScript ?
-How to generate random number in given range using JavaScript ?
-How to convert long number into abbreviated string in JavaScript ?
-How to check first number is divisible by second one in JavaScript ?
-How to get a number of vowels in a string in JavaScript ?
-How to limit a number between a min/max value in JavaScript ?
-How to convert a pixel value to a number value using JavaScript ?
-How to count number of data types in an array in JavaScript ?
-How to print a number with commas as thousands separators in JavaScript?
-How to calculate the number of days between two dates in JavaScript ?
-How to check whether a number is NaN or finite in JavaScript ?
-How to write a cell phone number in an international way using JavaScript ?
-How to check a number is even without using modulo operator in JavaScript ?
-How to calculate the number of days between two dates in JavaScript ?
-Read
-Courses
-To Calculate the number of days between two dates in JavaScript we use the Date object and perform some basic arithmetic with milliseconds. The below methods can be used to find out the number of days between two dates.
-
-Table of Content
-
-Using Two different dates
-Using One fixed date
-Using Two different dates
-Use new Date() to create two date objects, date1 and date2.
-Use date2.getTime() – date1.getTime() to calculate the time difference in milliseconds between the two dates.
-Divide the time difference by the number of milliseconds in a day (1000 * 60 * 60 * 24) to obtain the number of days.
-Example: The following JavaScript program will illustrate the process of finding the number of days between two dates.
-
-javascript
-let date1 = new Date("01/16/2024");
-let date2 = new Date("01/26/2024");
- 
-// Calculating the time difference
-// of two dates
-let Difference_In_Time =
-    date2.getTime() - date1.getTime();
- 
-// Calculating the no. of days between
-// two dates
-let Difference_In_Days =
-    Math.round
-        (Difference_In_Time / (1000 * 3600 * 24));
- 
-// To display the final no. of days (result)
-console.log
-    ("Total number of days between dates:\n" +
-        date1.toDateString() + " and " +
-        date2.toDateString() +
-        " is: " + Difference_In_Days + " days");
-Output
-Total number of days between dates:
-Tue Jan 16 2024 and Fri Jan 26 2024 is: 10 days
-Using One fixed date
-Present date is obtained using new Date().
-Christmas date is set using date.getFullYear().
-If Christmas has passed, adjust the date to the next year.
-Calculate the difference in days using Math.round((christmas_day.getTime() – present_date.getTime()) / one_day).
-Log the result to the console with present and Christmas dates.
-Example: The below code find out the number of days between the current date and the christmas date.
-
-javascript
-// One day Time in ms (milliseconds)
-let one_day = 1000 * 60 * 60 * 24;
- 
-// To set present_dates to two variables
-let present_date = new Date();
- 
-// 0-11 is Month in JavaScript
-let christmas_day = 
-    new Date(present_date.getFullYear(), 11, 25);
- 
-// To Calculate next year's Christmas if passed already.
-if (present_date.getMonth() == 
-    11 && present_date.getDate() > 25) {
-        christmas_day.setFullYear(christmas_day.getFullYear() + 1);
-}
- 
-// To Calculate the result in milliseconds and 
-// then converting into days
-let Result = Math.round((christmas_day.getTime() - 
-    present_date.getTime()) / one_day);
- 
-// To remove the decimals from the (Result) 
-// resulting days value
-let Final_Result = Result.toFixed(0);
- 
-// To display the final_result value
-console.log("Number of days remaining till Christmas:\n" +
-    present_date.toDateString() + " and " + 
-    christmas_day.toDateString() +
-    " is: " + Final_Result + " days");
     </script>
   </body>
 </html>
