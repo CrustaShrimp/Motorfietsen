@@ -2,25 +2,39 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Display current date and time</title>
+    <title>Heeft Gimly zijn rijbewijs al terug=</title>
   </head>
   <body>
-    <h1>Current date and time:</h1>
-    <span id="datetime"></span>
+    <h2>Heeft Gimly zijn rijbewijs al terug:</h2>
+    <h1><span class="answertext" id="answer"></span></h1>
+    <h3><span id="datetime"></span></h3>
 
     <script>
       // create a function to update the date and time
-      function updateDateTime() {
+      function updateDateTime() 
+	  {
         // create a new `Date` object
         const now = new Date();
+        const rbw = new Date("04/10/2024");
 
-        // get the current date and time as a string
-        const currentDateTime = now.toLocaleString();
-
-        // update the `textContent` property of the `span` element with the `id` of `datetime`
-        document.querySelector('#datetime').textContent = currentDateTime;
+		let Difference_In_Time = rbw.getTime() - now.getTime();
+		
+		let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+		
+		console.log(Difference_In_Days);
+		
+		if (Difference_In_Days > 0)
+		{
+			document.querySelector('#answer').textContent = "Nee!";
+			document.querySelector('#answer').style.color = "red";
+			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " dagen geduld...";			
+		}
+		else
+		{
+			document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
+			document.querySelector('#answer').style.color = "green";	
+		}
       }
-
       // call the `updateDateTime` function every second
       setInterval(updateDateTime, 1000);
     </script>
