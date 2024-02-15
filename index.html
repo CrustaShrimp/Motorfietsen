@@ -5,8 +5,8 @@
     <title>Heeft Gimly zijn rijbewijs al terug=</title>
 	<style>
 	body{
-	   color: #CECECE;
-	   background-color: #1B1B1B;
+   	color: #CECECE;
+	background-color: #1B1B1B;
 	}
    </style>
   </head>
@@ -22,14 +22,10 @@
 	  {
         // create a new `Date` object
         const now = new Date();
-        const rbw = new Date("04/10/2024");
+        const rbw = new Date("2024-04-10");
 
 		let Difference_In_Time = rbw.getTime() - now.getTime();
-		
-		let Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));
-		
-		console.log(Difference_In_Days);
-		
+		let Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));		
 		if (Difference_In_Days > 1)
 		{
 			document.querySelector('#answer').textContent = "Nee!";
@@ -48,8 +44,8 @@
 			document.querySelector('#answer').style.color = "green";	
 		}
       }
-      // call the `updateDateTime` function every second
-      setInterval(updateDateTime, 1000);
+      // call the `updateDateTime` function every minute
+      setInterval(updateDateTime, 60000);
     </script>
   </body>
 </html>
