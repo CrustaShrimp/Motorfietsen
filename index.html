@@ -3,8 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>Heeft Gimly zijn rijbewijs al terug=</title>
+	<style>
+	body{
+	   color: #CECECE;
+	   background-color: #1B1B1B;
+	}
+   </style>
   </head>
   <body>
+   
     <h2>Heeft Gimly zijn rijbewijs al terug:</h2>
     <h1><span class="answertext" id="answer"></span></h1>
     <h3><span id="datetime"></span></h3>
@@ -19,15 +26,21 @@
 
 		let Difference_In_Time = rbw.getTime() - now.getTime();
 		
-		let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+		let Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));
 		
 		console.log(Difference_In_Days);
 		
-		if (Difference_In_Days > 0)
+		if (Difference_In_Days > 1)
 		{
 			document.querySelector('#answer').textContent = "Nee!";
 			document.querySelector('#answer').style.color = "red";
-			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " dagen geduld...";			
+			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " nachtjes slapen...";			
+		}
+		else if (Difference_In_Days > 0)
+		{
+			document.querySelector('#answer').textContent = "Nee!";
+			document.querySelector('#answer').style.color = "red";
+			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " nachtje slapen!";			
 		}
 		else
 		{
