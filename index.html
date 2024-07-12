@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Heeft Ben zijn rijbewijs al terug=</title>
+    <!--<title>Heeft Ben zijn rijbewijs al terug?</title>-->
+    <title>2200 leden ritje</title>
 	<style>
 	body{
    	color: #CECECE;
@@ -12,8 +13,9 @@
   </head>
   <body>
    
-    <h2>Heeft Ben zijn rijbewijs al terug:</h2>
-    <h1><span class="answertext" id="answer"></span></h1>
+    <!--<h2>Heeft Ben zijn rijbewijs al terug:</h2>-->
+    <h2>Hoe lang nog tot het 2200 leden ritje?</h2>
+    <!--<h1><span class="answertext" id="answer"></span></h1>-->
     <h3><span id="datetime"></span></h3>
 
     <script>
@@ -28,20 +30,27 @@
 		let Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));		
 		if (Difference_In_Days > 1)
 		{
-			document.querySelector('#answer').textContent = "Nee!";
-			document.querySelector('#answer').style.color = "red";
+			//document.querySelector('#answer').textContent = "Nee!";
+			//document.querySelector('#answer').style.color = "red";
 			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " nachtjes slapen...";			
 		}
 		else if (Difference_In_Days > 0)
 		{
-			document.querySelector('#answer').textContent = "Nee!";
-			document.querySelector('#answer').style.color = "red";
+			//document.querySelector('#answer').textContent = "Nee!";
+			//document.querySelector('#answer').style.color = "red";
 			document.querySelector('#datetime').textContent = "Nog " + Difference_In_Days.toLocaleString() + " nachtje slapen!";			
 		}
-		else
+		else if (Difference_In_Days == 0)
 		{
-			document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
-			document.querySelector('#answer').style.color = "green";	
+			//document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
+			//document.querySelector('#answer').style.color = "green";
+			document.querySelector('#datetime').textContent = "Stap op en rijd!";	
+		}
+	        else
+		{
+			//document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
+			//document.querySelector('#answer').style.color = "green";
+			document.querySelector('#datetime').textContent = "Het was een tof ritje!";	
 		}
       }
       // call initially:
