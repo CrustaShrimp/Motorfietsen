@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!--<title>Heeft Ben zijn rijbewijs al terug?</title>-->
-    <title>2200 leden ritje</title>
+    <title>Heeft Mr. Full titanium zijn knie operatie al gehad?</title>
 	<style>
 	body{
    	color: #CECECE;
@@ -12,9 +11,8 @@
    </style>
   </head>
   <body>
-   
     <!--<h2>Heeft Ben zijn rijbewijs al terug:</h2>-->
-    <h2>Hoe lang nog tot het 2200 leden ritje?</h2>
+    <h2>Hoe lang nog de knie operatie?</h2>
     <!--<h1><span class="answertext" id="answer"></span></h1>-->
     <h3><span id="datetime"></span></h3>
 
@@ -24,9 +22,9 @@
 	  {
         // create a new `Date` object
         const now = new Date();
-        const rbw = new Date("2024-08-04");
+        const duedate = new Date("2025-01-30");
 
-		let Difference_In_Time = rbw.getTime() - now.getTime();
+		let Difference_In_Time = duedate.getTime() - now.getTime();
 		let Difference_In_Days = Math.ceil(Difference_In_Time / (1000 * 3600 * 24));		
 		if (Difference_In_Days > 1)
 		{
@@ -44,13 +42,13 @@
 		{
 			//document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
 			//document.querySelector('#answer').style.color = "green";
-			document.querySelector('#datetime').textContent = "Stap op en rijd!";	
+			document.querySelector('#datetime').textContent = "Operatie gaande...&#129310;";	
 		}
 	        else
 		{
 			//document.querySelector('#answer').textContent = "Ja, of hij is onderweg!";	
 			//document.querySelector('#answer').style.color = "green";
-			document.querySelector('#datetime').textContent = "Het was een tof ritje!";	
+			document.querySelector('#datetime').textContent = "Operatie geweest!";	
 		}
       }
       // call initially:
